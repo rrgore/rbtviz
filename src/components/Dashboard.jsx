@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
     const [insert, setInsert] = useState(0);
     const [del, setDel] = useState(0);
     const [find, setFind] = useState(0);
 
-    const insertValue = (e) => {
-        e.preventDefault();
-        console.log("Insert: "+insert);
+    const insertValue = () => {
+        props.setVal(insert.toString());
         setInsert(0);
     }
 

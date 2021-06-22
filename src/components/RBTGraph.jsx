@@ -17,48 +17,48 @@ export default class RBTGraph extends React.Component {
             model: this.graph
         });
 
+        // var link = new joint.shapes.standard.Link({
+        //     source: {
+        //       id: circle1.id
+        //     },
+        //     target: {
+        //       id: circle2.id
+        //     }
+        // });
+        // this.graph.addCells([circle1, circle2, link]);
+
+        // console.log("RBTGraph insertVal: "+this.props.insertVal);
+    }
+
+    componentDidUpdate() {
+        if (this.props.insertVal !== '') {
+            this.addCell(this.props.insertVal);
+        }
+    }
+
+    addCell(label) {
         var circle1 = new joint.shapes.standard.Circle({
-            position: {x: 650, y: 50},
+            position: {x: 650, y: 10},
             size: {width: 50, height: 50},
             attrs: {
                 'body': {
                     fill: 'lightblue'
                 },
                 'label': {
-                    text: '0001'
+                    text: label
                 }
             }
         });
-        // circle1.addTo(this.graph);
-
-        var circle2 = new joint.shapes.standard.Circle({
-            position: {x: 750, y: 150},
-            size: {width: 50, height: 50},
-            attrs: {
-                'body': {
-                    fill: 'lightblue'
-                },
-                'label': {
-                    text: '0002'
-                }
-            }
-        });
-        // circle2.addTo(this.graph);
-
-        var link = new joint.shapes.standard.Link({
-            source: {
-              id: circle1.id
-            },
-            target: {
-              id: circle2.id
-            }
-        });
-        this.graph.addCells([circle1, circle2, link]);
+        circle1.addTo(this.graph);
     }
 
     render() {
         return (
-            <div id="playground" ref={this.myRef}>
-            </div>);
+            <>
+                <h1>Graph</h1>
+                <div id="playground" ref={this.myRef}>                    
+                </div>
+            </>
+        );
     }
 }
