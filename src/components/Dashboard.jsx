@@ -6,20 +6,28 @@ const Dashboard = (props) => {
     const [find, setFind] = useState(0);
 
     const insertValue = () => {
-        props.setVal(insert.toString());
+        props.setInsert(insert.toString());
+        props.setDelete('');
+        props.setFind('');
         setInsert(0);
     }
 
     const deleteValue = (e) => {
-        e.preventDefault();
-        console.log("Delete: "+del);
+        // e.preventDefault();
+        // console.log("Delete: "+del);
+        props.setDelete(del.toString());
+        props.setFind('');
+        props.setInsert('');
         setDel(0);
     }
 
     const findValue = (e) => {
-        e.preventDefault();
-        console.log("Find: "+find);
-        setInsert(0);
+        // e.preventDefault();
+        // console.log("Find: "+find);
+        props.setFind(find.toString());
+        props.setInsert('');
+        props.setDelete('');
+        setFind(0);
     }
 
     return (
